@@ -4,14 +4,23 @@ import { Link } from "react-router-dom";
 function PictureCard ( { title, description, _id, imageUrl} ) {
   
   return (
-    <div className="ProjectCard card">
-      {/* <Link to={`/pictures/${_id}`}> */}
-      <Link to={`/pictures/edit/${_id}`}>
-        <h3>{title}</h3>
-      </Link>
-      <p style={{ maxWidth: "400px" }}>{description} </p>
-      <img src={imageUrl} alt="picture" width="200" />
-    </div>
+      <div className="card">
+        <img src={imageUrl} alt="picture" className="img-thumbnail"/>
+        <p>Title: {title}</p>
+        <p style={{ maxWidth: "400px" }}>Description: {description} </p>
+
+        <div class="button-box col-lg-12">
+          <div class="btn-group mr-2">
+            <Link to={`/pictures/edit/${_id}`}>
+              <button type="button" class="btn btn-secondary">Edit input</button>
+            </Link>
+          </div>
+
+          <div class="btn-group mr-2">
+            <button type="button" class="btn btn-secondary">Select picture</button>
+          </div>
+        </div>  
+      </div> 
   );
 }
 

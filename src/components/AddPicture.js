@@ -2,6 +2,9 @@ import { useState, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
 import service from "../api/service";
+import { useNavigate } from 'react-router-dom';
+
+
 
 const API_URL = "http://localhost:5005";
 
@@ -11,7 +14,8 @@ function AddPicture(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  
+  const navigate = useNavigate();
+
   // ******** this method handles the file upload ********
   const handleFileUpload = (e) => {
     console.log("The file to be uploaded is: ", e.target.files[0]);
@@ -54,15 +58,16 @@ function AddPicture(props) {
       setDescription("");
       setImageUrl("");
       
-      props.refreshProjects();
+      props.refreshPictures();
+      navigate("/pictures");
     })
       .catch((error) => console.log(error));
   };
 
   return (
-    <div className="AddProject">
+    <div className="AddPicture">
       <h3>Add Picture for your new picture book</h3>
-      <p>Title and description will be added to the book automatically</p>
+      <p>When you fill out title and description then it will be added to the book automatically</p>
 
       <form onSubmit={handleSubmit}>
         <label>Title for the picture:</label>

@@ -60,8 +60,8 @@ nav li {
   margin-left: 5px;
 }
  
-.EditProjectPage,
-.AddProject,
+.EditPicturePage,
+.AddPicture,
 .AddTask,
 .SignupPage,
 .LoginPage {
@@ -73,11 +73,11 @@ nav li {
   margin: 0 auto;
   margin-bottom: 20px;
   padding: 10px;
-  border-radius: 4px;
+  border-radius: 10px;
 }
  
-.EditProjectPage {
-  background-color: rgb(239, 196, 88);
+.EditPicturePage {
+  background-color:lightblue;
 }
  
 .SignupPage,
@@ -89,21 +89,37 @@ nav li {
   background-color: #94a7c8;
 }
  
-.EditProjectPage form,
+.EditPicturePage form,
 .AddTask form,
-.AddProject form,
+.AddPicture form,
 .SignupPage form,
 .LoginPage form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 10px 0 0;
 }
  
 .AddTask button,
-.AddProject button {
+.AddPicture button {
   display: block;
 }
  
 .TaskCard {
   background-color: #dfeef9;
+}
+
+.countryCard {
+  text-align: start;
+}
+
+.pictureCardImage {
+  height: 50px;
+  width: 10px;
+  background-color: pink;
+}
+
+.button-box {
+  text-align:center;
+  margin-top:10px;
 }
