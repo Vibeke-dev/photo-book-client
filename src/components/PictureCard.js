@@ -12,7 +12,7 @@ function PictureCard ( { title, description, _id, imageUrl} ) {
         <div class="button-box col-lg-12">
           <div class="btn-group mr-2">
             <Link to={`/pictures/edit/${_id}`}>
-              <button type="button" class="btn btn-secondary">Edit input</button>
+              <button type="button" class="btn btn-secondary btn-space">Edit input</button>
             </Link>
           </div>
 

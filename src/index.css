@@ -123,3 +123,52 @@ nav li {
   text-align:center;
   margin-top:10px;
 }
+
+.dark {
+  background-color: #18191a;
+}
+
+/* Adding picture style */
+.text-on-image {
+  position: absolute;
+  right: 70%;
+  left: 10.5%;
+  bottom: 20%;
+  
+}
+
+.w-15 {
+  width: 15%;
+  height: 150%;
+}
+
+@media (min-width: 1200px) {
+  .responsive-font-example {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .responsive-font-example {
+    font-size: 10px;
+  }
+}
+
+
+
+.containerBackground {
+  content: "";
+    /* opacity: 0.5; */
+    
+    
+
+    /* also change the blend mode to what suits you, from darken, to other 
+    many options as you deem fit*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    
+    
+    
+}
+/* backgroundRepeat: 'no-repeat', backgroundSize: "cover", backgroundBlendMode: "luminosity" */
