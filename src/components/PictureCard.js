@@ -1,23 +1,31 @@
 import { Link } from "react-router-dom";
 
 // We are deconstructing props object directly in the parentheses of the function
-function PictureCard ( { title, description, _id, imageUrl} ) {
+function PictureCard ( props ) {
+  // console.log("PictureCard")
+  // console.log(props)
+  // { title, description, _id, imageUrl}
   
   return (
       <div className="card">
-        <img src={imageUrl} alt="picture" className="img-thumbnail"/>
-        <p>Title: {title}</p>
-        <p style={{ maxWidth: "400px" }}>Description: {description} </p>
+        <img src={props.imageUrl} alt="picture" className="img-thumbnail"/>
+        <p>Title: {props.title}</p>
+        <p style={{ maxWidth: "400px" }}>Description: {props.description} </p>
 
-        <div class="button-box col-lg-12">
-          <div class="btn-group mr-2">
-            <Link to={`/pictures/edit/${_id}`}>
-              <button type="button" class="btn btn-secondary btn-space">Edit input</button>
+        <div className="button-box col-lg-12">
+          <div className="btn-group mr-2">
+            <Link to={`/pictures/edit/${props._id}`}>
+              <button type="button" className="btn btn-secondary btn-space">Edit input</button>
             </Link>
           </div>
 
-          <div class="btn-group mr-2">
-            <button type="button" class="btn btn-secondary">Select picture</button>
+          <div className="btn-group mr-2">
+            <button type="button" className="btn btn-secondary" onClick={() => props.toggleTask(props._id)}>
+            {props.isSelected 
+            ? <span>Remove Picture</span> 
+            : <span>Select Picture</span>
+          }
+            </button>
           </div>
         </div>  
       </div> 
