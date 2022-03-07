@@ -32,20 +32,24 @@ function AuthProviderWrapper(props) {
        // Update state variables        
         setIsLoggedIn(true);
         setIsLoading(false);
-        setUser(user);        
+        setUser(user);
+        console.log("add user");        
       })
       .catch((error) => {
         // If the server sends an error response (invalid token) 
         // Update state variables         
         setIsLoggedIn(false);
         setIsLoading(false);
-        setUser(null);        
+        setUser(null);  
+        console.log(error);
+        console.log("Error user");      
       });      
     } else {
       // If the token is not available (or is removed)
         setIsLoggedIn(false);
         setIsLoading(false);
-        setUser(null);      
+        setUser(null);    
+        console.log("TOken gone user");  
     }   
   }
 

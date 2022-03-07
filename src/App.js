@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import PictureListPage from "./pages/PictureListPage";
 import EditPicturePage from "./pages/EditPicturePage";
+import CartPage from "./pages/CartPage";
+// import PrintPage from "./pages/PrintPage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import IsPrivate from "./components/IsPrivate";
@@ -26,6 +28,16 @@ function App() {
           path="/pictures/edit/:id"
           element={ <IsPrivate> <EditPicturePage /> </IsPrivate> } 
         />
+
+        <Route
+          path="/basket"
+          element={ <IsPrivate> <CartPage /> </IsPrivate> } 
+        />
+
+        {/* <Route
+          path="/print"
+          element={ <IsPrivate> <PrintPage /> </IsPrivate> } 
+        /> */}
         
         <Route path="/signup" element={<IsAnon> <SignupPage /> </IsAnon>} />
         <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />     

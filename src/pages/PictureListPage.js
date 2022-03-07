@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import PictureCard from "../components/PictureCard";
 import AddPicture from "../components/AddPicture";
@@ -30,9 +30,10 @@ function PictureListPage() {
   //console.log("initial" + pictureSelectedNumber)
 
   const getAllPictures = () => {
+    console.log(user);
     axios
     .get(
-    `${API_URL}/api/pictures/?userID=${user._id}`,
+    `${API_URL}/api/pictures?userID=${user._id}`,
     { headers: { Authorization: `Bearer ${storedToken}` } }
   )
     .then((response) => setPictures(response.data))
@@ -139,12 +140,18 @@ function PictureListPage() {
           <div className={'row h-50 d-inline-block w-75 p-3 ' + theme}>
             {/* <img className='img-fluid w-100 h-100' src={book} alt="PhotoBook" /> */}
             
-            <div className='img-fluid w-100 h-100' style={{ backgroundImage: `url(${book})`, backgroundRepeat: 'no-repeat' }}>
+            <div className='img-fluid w-100 h-100' style={{ backgroundImage: `url(${book})`, backgroundRepeat: 'no-repeat' , backgroundSize: 'cover'}}>
             </div>
 
             <div className='text-on-image'>
               <PictureBookCard />  
             </div>
+            
+            <Link to={`/basket`}>
+              <button type="button" className="btn btn-secondary btn-space">Add to basket</button>
+            </Link>
+
+
           </div>
       </div>
     </div>

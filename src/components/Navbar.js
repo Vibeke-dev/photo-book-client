@@ -7,10 +7,10 @@ function Navbar() {
   // the values from AuthContext.Provider `value` prop
   const { 
     isLoggedIn,
-    user,                   // <== UPDATE
-    logOutUser              // <== UPDATE
+    user,                   
+    logOutUser              
   } = useContext(AuthContext);
-
+console.log(user)
   return (
     <nav>
       <Link to="/">
@@ -24,8 +24,20 @@ function Navbar() {
           </Link>        
           <button onClick={logOutUser}>Logout</button>
           <span>{user && user.name}</span>
+
+          <Link to="/print">
+            <button>Print</button>
+          </Link>  
         </>
       )}
+
+      {/* {user.email === "vg3y@hotmail.com" && (
+        <>
+          <Link to="/print">
+            <button>Print</button>
+          </Link>        
+        </>
+      )} */}
  
       {!isLoggedIn && (
         <>
