@@ -122,7 +122,6 @@ function PictureListPage() {
             />
             <label className="radio-inline col-xs-6" for="Summer">Summer theme</label>
         
-          
             <input
               type="radio"
               name="switchToggle"
@@ -130,7 +129,6 @@ function PictureListPage() {
               onChange={toggleTheme}	
             />
             <label for="Neutral">Neutral theme</label>
-        
           </form>
         </div>
 

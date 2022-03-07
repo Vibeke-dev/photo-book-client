@@ -5,7 +5,7 @@ import HomePage from "./pages/HomePage";
 import PictureListPage from "./pages/PictureListPage";
 import EditPicturePage from "./pages/EditPicturePage";
 import CartPage from "./pages/CartPage";
-// import PrintPage from "./pages/PrintPage";
+import PrintPage from "./pages/PrintPage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import IsPrivate from "./components/IsPrivate";
@@ -34,10 +34,10 @@ function App() {
           element={ <IsPrivate> <CartPage /> </IsPrivate> } 
         />
 
-        {/* <Route
+        <Route
           path="/print"
           element={ <IsPrivate> <PrintPage /> </IsPrivate> } 
-        /> */}
+        />
         
         <Route path="/signup" element={<IsAnon> <SignupPage /> </IsAnon>} />
         <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />     
