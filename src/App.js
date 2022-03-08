@@ -11,6 +11,7 @@ import LoginPage from "./pages/LoginPage";
 import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
 
+
 function App() {
   return (
     <div className="App">
@@ -18,10 +19,12 @@ function App() {
 
       <Routes>      
         <Route exact path="/" element={<HomePage />} />
+        
         <Route
           path="/pictures"
           element={ <IsPrivate> <PictureListPage /> </IsPrivate> } 
         />
+        
  
  
         <Route

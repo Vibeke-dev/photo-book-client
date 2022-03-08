@@ -156,6 +156,7 @@ nav li {
 
 
 
+
 .containerBackground {
   content: "";
     /* opacity: 0.5; */
@@ -172,3 +173,29 @@ nav li {
     
 }
 /* backgroundRepeat: 'no-repeat', backgroundSize: "cover", backgroundBlendMode: "luminosity" */
+
+.cardBook {
+  /* width: 400px;
+  height: 20px;
+  padding: 10px;
+  
+  margin: 0 auto;
+  margin-bottom: 20px; */
+
+  font-size: 1.7em;
+  text-align: center;
+  
+  
+  box-sizing: border-box;
+  
+  margin: 50px 5% 0 5%;
+  padding: 20px;
+  width: 20%;
+  
+  
+}
+
+.imgBook{
+  height: 100px;
+  
+}

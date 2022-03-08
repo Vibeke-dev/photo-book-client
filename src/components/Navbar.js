@@ -10,7 +10,7 @@ function Navbar() {
     user,                   
     logOutUser              
   } = useContext(AuthContext);
-console.log(user)
+
   return (
     <nav>
       <Link to="/">
