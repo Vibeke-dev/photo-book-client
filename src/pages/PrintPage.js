@@ -10,45 +10,41 @@ import PrintBookCard from "../components/PrintBookCard";
 const API_URL = "http://localhost:5005";
 
 function PrintPage() {
-    const { user } = useContext(AuthContext);
-    const [printList, setPrintList] = useState([]);
-    const [toBePrinted, setToBePrinted] = useState([]);
-    const [idOption, setIdOption] = useState();
-    
-    // Get the token from the localStorage
-    const storedToken = localStorage.getItem('authToken');
+  const { user } = useContext(AuthContext);
+  const [printList, setPrintList] = useState([]);
+  const [toBePrinted, setToBePrinted] = useState([]);
+  const [idOption, setIdOption] = useState();
 
-    const getAllBooks = () => {
-        axios
-        .get(
+  // Get the token from the localStorage
+  const storedToken = localStorage.getItem('authToken');
+
+  const getAllBooks = () => {
+    axios
+      .get(
         `${API_URL}/api/book`,
         { headers: { Authorization: `Bearer ${storedToken}` } })
-        .then((response) => {setPrintList(response.data)})    
-        .catch((error) => console.log(error));
-    };
-    
-      useEffect(() => {
-        getAllBooks();
-        //console.log(printList)
-      }, [] );
+      .then((response) => { setPrintList(response.data) })
+      .catch((error) => console.log(error));
+  };
 
+  useEffect(() => {
+    getAllBooks();
+    //console.log(printList)
+  }, []);
 
-    
-    return (
-      <div>
-      <h3>Needs to be printed</h3> 
-        
-        <AddressCard />
-       
-       {printList.map(item => {
-            return (
-              <PrintBookCard refreshPictures={getAllBooks} bookId={item._id} pictureData={item.picture} />
+  return (
+    <div>
+      <h3>Needs to be printed</h3>
 
-            );
-          })}
+      {printList.map(item => {
+        return (
+          <PrintBookCard refreshPictures={getAllBooks} bookId={item._id} pictureData={item.picture} />
 
-      </div>
-    );
-  }
-  
-  export default PrintPage;
+        );
+      })}
+
+    </div>
+  );
+}
+
+export default PrintPage;
