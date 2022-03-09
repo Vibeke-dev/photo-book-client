@@ -13,11 +13,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <AuthProviderWrapper>
-        <ThemeProviderWrapper>
+    <ThemeProviderWrapper>
+      <AuthProviderWrapper>  
           <App />
-        </ThemeProviderWrapper>
       </AuthProviderWrapper>
+      </ThemeProviderWrapper>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")

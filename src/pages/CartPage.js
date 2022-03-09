@@ -5,7 +5,6 @@ import { AuthContext } from "../context/auth.context";
 import PictureBookCard from "../components/PictureBookCard";
 import AddressCard from "../components/AddressCard";
 
-// const API_URL = "http://localhost:5005";
 const API_URL = "https://photo-book2.herokuapp.com";
 
 function CartPage() {

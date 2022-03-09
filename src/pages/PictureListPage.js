@@ -14,7 +14,6 @@ import Blur from 'react-blur'
 //import book from './../images/bookNeutral.jpg';
 import backgroundNeutral from './../images/backgroundNeutral.jpg';
 
-// const API_URL = "http://localhost:5005";
 const API_URL = "https://photo-book2.herokuapp.com";
 
 //This function is used to get the pictures by userID from DB
@@ -56,8 +55,9 @@ console.log("vibekeLigefoer")
   };
 
   useEffect(() => {
+    console.log("insdide effect " ,user)
     getAllPictures();
-  }, []);
+  }, [user]);
 
   // Used to keep track on the selected pictures in PictureCard
   const togglePictureSelected = (id) => {
