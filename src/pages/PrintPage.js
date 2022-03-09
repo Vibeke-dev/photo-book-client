@@ -7,7 +7,8 @@ import PictureBookCard from "../components/PictureBookCard";
 import AddressCard from "../components/AddressCard";
 import PrintBookCard from "../components/PrintBookCard";
 
-const API_URL = "http://localhost:5005";
+// const API_URL = "http://localhost:5005";
+const API_URL = "https://photo-book2.netlify.app/";
 
 function PrintPage() {
   const { user } = useContext(AuthContext);
