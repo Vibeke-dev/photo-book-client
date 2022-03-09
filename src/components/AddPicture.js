@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 // const API_URL = "http://localhost:5005";
-const API_URL = "https://photo-book2.herokuapp.com/";
+const API_URL = "https://photo-book2.herokuapp.com";
 
 function AddPicture(props) {
   const { user } = useContext(AuthContext);

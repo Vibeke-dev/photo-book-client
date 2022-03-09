@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from '../context/auth.context'; 
 
 // const API_URL = "http://localhost:5005";
-const API_URL = "https://photo-book2.herokuapp.com/";
+const API_URL = "https://photo-book2.herokuapp.com";
 
 
 function LoginPage(props) {
