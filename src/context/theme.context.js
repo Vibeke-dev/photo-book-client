@@ -1,4 +1,5 @@
 import { createContext, useState } from 'react'; 
+import book from './../images/bookNeutral.jpg';
 
 const ThemeContext = createContext();
 
@@ -8,11 +9,14 @@ function ThemeProviderWrapper(props) {
  
     const toggleTheme = () => {
         if (theme === 'light') {
-          setTheme('dark');
+          setTheme({book});
         } else {
           setTheme('light');
         }
       };
+
+      console.log("vibekeThemeContext")
+      console.log(theme)
      
       return (
         <ThemeContext.Provider value={{ theme, toggleTheme }}>

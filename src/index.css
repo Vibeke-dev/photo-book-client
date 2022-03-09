@@ -158,7 +158,7 @@ nav li {
 
 
 .containerBackground {
-  content: "";
+  
     /* opacity: 0.5; */
     
     
@@ -199,3 +199,15 @@ nav li {
   height: 100px;
   
 }
+
+.bookSize{
+  width: 200px;
+  height: 150px;
+}
+
+ .foto {
+  margin-top: 50px;
+  margin-left: 5px;
+  margin-right: 100px;
+  padding-left: 10px;
+ }

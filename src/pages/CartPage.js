@@ -47,7 +47,6 @@ function CartPage() {
       )
       .then((response) => navigate("/pictures") )
       .catch((error) => console.log(error));
-    
   };
 
   return (
