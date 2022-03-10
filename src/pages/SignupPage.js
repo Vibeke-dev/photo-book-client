@@ -13,9 +13,7 @@ function SignupPage(props) {
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
-
   const navigate = useNavigate();
-
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
   const handleName = (e) => setName(e.target.value);
@@ -23,7 +21,6 @@ function SignupPage(props) {
   const handlePostCode = (e) => setPostCode(e.target.value);
   const handleCity = (e) => setCity(e.target.value);
   const handleCountry = (e) => setCountry(e.target.value);
-
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
@@ -43,7 +40,6 @@ function SignupPage(props) {
         setErrorMessage(errorDescription);
       })
   };
-
 
   return (
     <div className="backgroundSignupColor">

@@ -21,7 +21,6 @@ function EditPicturePage(props) {
       )
       .then((response) => {
         const onePicture = response.data;
-        //console.log(response)
 
         setTitle(onePicture.title);
         setDescription(onePicture.description);

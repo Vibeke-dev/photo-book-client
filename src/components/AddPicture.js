@@ -17,18 +17,16 @@ function AddPicture(props) {
   // ******** this method handles the file upload ********
   const handleFileUpload = (e) => {
     console.log("The file to be uploaded is: ", e.target.files[0]);
- 
+
     const uploadData = new FormData();
- 
+
     // imageUrl => this name has to be the same as in the model since we pass
     // req.body to .create() method when creating a new movie in '/api/movies' POST route
     uploadData.append("imageUrl", e.target.files[0]);
- 
+
     service
       .uploadImage(uploadData)
       .then(response => {
-        //console.log("response is: ", response);
-        // response carries "fileUrl" which we can use to update the state
         setImageUrl(response.fileUrl);
       })
       .catch(err => console.log("Error while uploading the file: ", err));
@@ -37,28 +35,25 @@ function AddPicture(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const requestBody = { title, description, imageUrl, user: user._id };
-    //console.log("test")
-    //console.log(requestBody)
-   
+
     // Get the token from the localStorage
     const storedToken = localStorage.getItem('authToken');
-   
-    // Send the token through the request "Authorization" Headers
+
     axios
       .post(
-      `${API_URL}/api/pictures`,
-      requestBody,
-      { headers: { Authorization: `Bearer ${storedToken}` } }
-    )
+        `${API_URL}/api/pictures`,
+        requestBody,
+        { headers: { Authorization: `Bearer ${storedToken}` } }
+      )
       .then((response) => {
-      // Reset the state
-      setTitle("");
-      setDescription("");
-      setImageUrl("");
-      
-      props.refreshPictures();
-      navigate("/pictures");
-    })
+        // Reset the state
+        setTitle("");
+        setDescription("");
+        setImageUrl("");
+
+        props.refreshPictures();
+        navigate("/pictures");
+      })
       .catch((error) => console.log(error));
   };
 
@@ -84,9 +79,9 @@ function AddPicture(props) {
           onChange={(e) => setDescription(e.target.value)}
         />
 
-        <input 
-        type="file"
-        onChange={(e) => handleFileUpload(e)}
+        <input
+          type="file"
+          onChange={(e) => handleFileUpload(e)}
         />
 
         <button type="submit">Submit</button>

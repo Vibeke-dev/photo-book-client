@@ -12,7 +12,7 @@ function CartPage() {
 
   const [selectedPictures, setSelectedPictures] = useState([]);
   const [price, setPrice] = useState(50)
-  // Get the token from the localStorage
+
   const storedToken = localStorage.getItem('authToken');
 
   const getAllPictures = () => {
@@ -22,7 +22,6 @@ function CartPage() {
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
       .then((response) => setSelectedPictures(response.data))
-      //.then((response) => const dataToSort = [...])
 
       .catch((error) => console.log(error));
   };
@@ -34,8 +33,6 @@ function CartPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const requestBody = { selectedPictures, price };
-    console.log("test")
-    console.log(requestBody)
 
     //create book in the DB
     axios
@@ -44,17 +41,17 @@ function CartPage() {
         requestBody,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
-      .then((response) => navigate("/pictures") )
+      .then((response) => navigate("/pictures"))
       .catch((error) => console.log(error));
   };
 
   return (
     <div className="backgroundCartColor">
       <h3 className="cartBuy">Press buy and the book will be send to your address</h3>
-      
+
       <AddressCard />
       <form onSubmit={handleSubmit}>
-      
+
         <button type="submit" className="btn btn-secondary btn-space">Buy</button>
         <input readOnly
           type="number"

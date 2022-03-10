@@ -16,8 +16,6 @@ function PrintBookCard(props) {
 
   // Get the token from the localStorage
   const storedToken = localStorage.getItem('authToken');
-  console.log("props data:")
-  console.log(props)
   const { bookId, pictureData } = props
   const pictureId = pictureData[0];
 
@@ -88,7 +86,7 @@ function PrintBookCard(props) {
       <h3>BOOK</h3>
 
       <form onSubmit={handleSubmit}>
-        <label>Label for packet </label>
+        <label>Label for package </label>
         <p>Ship to:</p>
         <label>{name} </label>
         <label>{address} </label>

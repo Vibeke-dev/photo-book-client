@@ -1,11 +1,9 @@
 import axios from "axios";
 const storedToken = localStorage.getItem('authToken');
 const api = axios.create({
-  // make sure you use PORT = 5005 (the port where our server is running)
     
   baseURL: "https://photo-book2.herokuapp.com",
   headers: { Authorization: `Bearer ${storedToken}` }
-  // withCredentials: true // => you might need this option if using cookies and sessions
 });
 
 const errorHandler = (err) => {

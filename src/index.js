@@ -7,19 +7,15 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { AuthProviderWrapper } from "./context/auth.context";
 import { ThemeProviderWrapper } from "./context/theme.context";
 import 'bootstrap/dist/css/bootstrap.css';
-// import "bootstrap-3-card\sass\_card.scss";
-
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-
       <AuthProviderWrapper>
         <ThemeProviderWrapper>
           <App />
         </ThemeProviderWrapper>
       </AuthProviderWrapper>
-
     </Router>
   </React.StrictMode>,
   document.getElementById("root")

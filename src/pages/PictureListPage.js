@@ -1,11 +1,8 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useNavigate, Link } from 'react-router-dom';
-import { Container, Row, Col } from "reactstrap";
-
 import PictureCard from "../components/PictureCard";
 import AddPicture from "../components/AddPicture";
-
 import { AuthContext } from "../context/auth.context";
 import { ThemeContext } from '../context/theme.context';
 
@@ -15,10 +12,8 @@ function PictureListPage() {
   const { user } = useContext(AuthContext);
   const [pictures, setPictures] = useState([]);
   const { theme, toggleTheme } = useContext(ThemeContext);
-
   const storedToken = localStorage.getItem("authToken");
   const navigate = useNavigate();
-
   const [pictureSelectedNumber, setPictureSelectedNumber] = useState(1)
   const [picturePlace, setPicturePlace] = useState(1)
 
@@ -112,7 +107,6 @@ function PictureListPage() {
   }).filter(x => x != null);
 
   return (
-    // <div className={'row containerBackground'} style={{ backgroundImage: `url(${backgroundNeutral})` }}>
     <div className={'row containerBackground'}>
       <div className="col-5">
         <AddPicture refreshPictures={getAllPictures} />
@@ -126,7 +120,7 @@ function PictureListPage() {
 
       <div className="col-7">
         <div>
-          <h3>Choose theme of your Photo Book</h3>
+          <h3>Choose theme of your Photo Book - add 4 pictures</h3>
           <form className="form-inline">
             <input
               id="flexRadioDefault1"
@@ -135,7 +129,6 @@ function PictureListPage() {
               value="Summer"
               onChange={toggleTheme}
               checked={theme === '/static/media/bookSummer2.806b8156.png'}
-
             />
             <label className="radio-inline col-xs-6" htmlFor="Summer">Summer theme</label>
 
@@ -153,22 +146,17 @@ function PictureListPage() {
         {/* new col/line */}
         <div className="w-100"></div>
 
-        {/* <div className={'row h-50 d-inline-block w-75 p-3 ' + theme}> */}
         <div className={'row h-50 d-inline-block w-75 p-3'}>
-
-          {/* <div className='bg-image .d-flex w-100 h-100' style={{ backgroundImage: `url(${book})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}> */}
           <div className='bg-image .d-flex w-100 h-100 photoBookImage' style={{ backgroundImage: `url(${theme})` }}>
             {result.map((result, index) => {
               return (
                 <h6 className="text-left" key={index}>
                   {result.map(item =>
-
                     <label className="foto" key={item._id}>
                       <img src={item.imageUrl} alt="picture" className="bookSize" />
                       {item.title}
                       {item.description}
                     </label>
-
                   )}
                 </h6>);
             })}

@@ -29,7 +29,6 @@ function PrintPage() {
       {printList.map(item => {
         return (
           <PrintBookCard key={item._id} refreshPictures={getAllBooks} bookId={item._id} pictureData={item.picture} />
-
         );
       })}
 

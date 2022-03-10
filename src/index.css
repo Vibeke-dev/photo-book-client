@@ -54,10 +54,10 @@ nav {
   border-radius: 4px;
 }
 
-.ProjectCard h3::after {
+/* .ProjectCard h3::after {
   content: url("https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/m3/icon-expand.png");
   margin-left: 5px;
-}
+} */
 
 .EditPicturePage,
 .AddPicture,
@@ -148,6 +148,7 @@ nav {
   /* background-size: cover; */
   background-color: #608dd5;
   padding-top: 20px;
+  padding-bottom: 400px;
 }
 
 .cardBook {
@@ -228,10 +229,12 @@ nav {
 
 .cartBuy {
   background-color: #608dd5;
-  margin-left: 400px;
-  margin-right: 400px;
   border: 5px solid #555;
   border-style: double;
+  position: center;
+  margin: auto;
+  width: 20%;
+  padding: 10px;
 }
 
 .photoBookImage {
@@ -265,11 +268,21 @@ nav {
 .to-right {
   float: right;
   margin-right: 10px;
-  
 }
 
 .to-left {
   float: left;
-  margin: 0px 0px 0px 10px;
+  margin-left: 10px;
+}
+
+.navText{
+  padding-top: 10px;
+}
+
+.fakeButton{
+  background: #515f7d;
+  color:  #515f7d;
+  opacity: 0;
+  padding: 10px;
 }
 

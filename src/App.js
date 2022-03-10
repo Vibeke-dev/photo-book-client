@@ -17,31 +17,31 @@ function App() {
     <div className="App">
       <NavbarFunction />
 
-      <Routes>      
+      <Routes>
         <Route exact path="/" element={<HomePage />} />
-        
+
         <Route
           path="/pictures"
-          element={ <IsPrivate> <PictureListPage /> </IsPrivate> } 
+          element={<IsPrivate> <PictureListPage /> </IsPrivate>}
         />
- 
+
         <Route
           path="/pictures/edit/:id"
-          element={ <IsPrivate> <EditPicturePage /> </IsPrivate> } 
+          element={<IsPrivate> <EditPicturePage /> </IsPrivate>}
         />
 
         <Route
           path="/basket"
-          element={ <IsPrivate> <CartPage /> </IsPrivate> } 
+          element={<IsPrivate> <CartPage /> </IsPrivate>}
         />
 
         <Route
           path="/print"
-          element={ <IsPrivate> <PrintPage /> </IsPrivate> } 
+          element={<IsPrivate> <PrintPage /> </IsPrivate>}
         />
-        
+
         <Route path="/signup" element={<IsAnon> <SignupPage /> </IsAnon>} />
-        <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />     
+        <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />
       </Routes>
     </div>
   );
