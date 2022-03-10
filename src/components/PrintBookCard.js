@@ -17,9 +17,9 @@ function PrintBookCard(props) {
   // Get the token from the localStorage
   const storedToken = localStorage.getItem('authToken');
   console.log("props data:")
-console.log(props)
+  console.log(props)
   const { bookId, pictureData } = props
-  const pictureId = pictureData[0];  
+  const pictureId = pictureData[0];
 
   //get the userId from the DB/Picture model
   useEffect(() => {
@@ -42,7 +42,7 @@ console.log(props)
       )
       .then((response) => {
         const userData = response.data;
-        
+
         setName(userData.name);
         setAddress(userData.address);
         setCity(userData.city);
@@ -56,16 +56,16 @@ console.log(props)
   //TODO: to be able to show the book that should be printed
   //get the picture data from the DB/picture model
   // useEffect(() => {
-    
+
   //   axios
   //     .get(`${API_URL}/api/pictures/${pictureId}`,
   //       { headers: { Authorization: `Bearer ${storedToken}` } }
   //     )
   //     .then((response) => {
   //       // const userData = response.data;
-        
+
   //       setAllPictures(response.data);
-        
+
   //     })
   //     .catch((error) => console.log(error));
 
@@ -88,6 +88,7 @@ console.log(props)
       <h3>BOOK</h3>
 
       <form onSubmit={handleSubmit}>
+        <label>Label for packet </label>
         <p>Ship to:</p>
         <label>{name} </label>
         <label>{address} </label>

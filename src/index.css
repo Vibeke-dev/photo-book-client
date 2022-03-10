@@ -31,19 +31,18 @@ textarea {
 nav {
   background: #515f7d;
   color: white;
-  padding: 0px 20px;
+  
   box-shadow: 0px 1px 2px gray;
   width: 100%;
-  /* margin-bottom: 15px; */
-  padding: 5px;
+  padding: 10px;
 }
 
-nav li {
+/* nav li {
   list-style: none;
   color: white;
   font-size: 24px;
   font-weight: 600;
-}
+} */
 
 .card {
   width: 400px;
@@ -64,7 +63,7 @@ nav li {
 .AddPicture,
 .SignupPage,
 .LoginPage {
-  background: #f9eec3;
+  
   border: 1px solid grey;
   box-shadow: 0px 2px 3px grey;
   width: 400px;
@@ -75,17 +74,11 @@ nav li {
   border-radius: 10px;
 }
 
-.EditPicturePage {
-  background-color: lightblue;
-}
-
+.AddPicture,
+.EditPicturePage,
 .SignupPage,
 .LoginPage {
-  background-color: #608dd5;
-}
-
-.LoginPage {
-  background-color: #94a7c8;
+  background-color: lightblue;
 }
 
 .EditPicturePage form,
@@ -151,8 +144,10 @@ nav li {
 }
 
 .containerBackground {
-  background-repeat: no-repeat;
-  background-size: cover;
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  background-color: #608dd5;
+  padding-top: 20px;
 }
 
 .cardBook {
@@ -193,8 +188,37 @@ nav li {
 
 .backgroundFrontColor{
   background-color: #608dd5;
-  padding: 115px;
-  /* margin: 0px; */
+  padding: 102px;
+}
+
+.backgroundEditColor{
+  padding-bottom: 620px;
+}
+
+.backgroundCartColor{
+  padding-bottom: 815px;
+}
+
+.backgroundPrintColor{
+  padding-bottom: 555px;
+}
+
+.backgroundLoginColor{
+  padding-bottom: 770px;
+}
+
+.backgroundSignupColor{
+  padding-bottom: 370px;
+}
+
+.backgroundSignupColor,
+.backgroundLoginColor,
+.backgroundEditColor,
+.backgroundCartColor,
+.backgroundPrintColor{
+  background-color: #608dd5;
+  padding-top: 10px;
+
 }
 
 .fontPageText {
@@ -237,3 +261,15 @@ nav li {
   width: 170%;
   height: auto;
 }
+
+.to-right {
+  float: right;
+  margin-right: 10px;
+  
+}
+
+.to-left {
+  float: left;
+  margin: 0px 0px 0px 10px;
+}
+

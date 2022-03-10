@@ -9,15 +9,11 @@ import backgroundNeutral from './../images/bookNature.png';
 import { Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
 
-
 function HomePage() {
   return (
     <div className="backgroundFrontColor">
      <div className="backgroundFront" style={{ backgroundImage: `url(${backgroundNeutral})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
     {/* <div> */}
-      
-      
-      
       <Container>
         <Row>
         <Col><img src={frontPage3} alt="picture" className="pictureNoRotate" /></Col>

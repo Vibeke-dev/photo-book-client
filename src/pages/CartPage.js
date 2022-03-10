@@ -49,11 +49,12 @@ function CartPage() {
   };
 
   return (
-    <div>
+    <div className="backgroundCartColor">
       <h3 className="cartBuy">Press buy and the book will be send to your address</h3>
       
       <AddressCard />
       <form onSubmit={handleSubmit}>
+      
         <button type="submit" className="btn btn-secondary btn-space">Buy</button>
         <input readOnly
           type="number"

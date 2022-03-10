@@ -1,6 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import NavbarFunction from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import PictureListPage from "./pages/PictureListPage";
 import EditPicturePage from "./pages/EditPicturePage";
@@ -15,7 +15,7 @@ import IsAnon from "./components/IsAnon";
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <NavbarFunction />
 
       <Routes>      
         <Route exact path="/" element={<HomePage />} />

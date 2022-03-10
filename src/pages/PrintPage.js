@@ -24,7 +24,7 @@ function PrintPage() {
   }, []);
 
   return (
-    <div>
+    <div className="backgroundPrintColor">
       <h3>Needs to be printed</h3>
       {printList.map(item => {
         return (
