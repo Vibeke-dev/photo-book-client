@@ -5,31 +5,24 @@ import { Container, Row, Col } from "reactstrap";
 
 import PictureCard from "../components/PictureCard";
 import AddPicture from "../components/AddPicture";
-import PictureBookCard from "../components/PictureBookCard";
 
 import { AuthContext } from "../context/auth.context";
 import { ThemeContext } from '../context/theme.context';
-import Blur from 'react-blur'
-
-//import book from './../images/bookNeutral.jpg';
-import backgroundNeutral from './../images/backgroundNeutral.jpg';
 
 const API_URL = "https://photo-book2.herokuapp.com";
 
-//This function is used to get the pictures by userID from DB
 function PictureListPage() {
   const { user } = useContext(AuthContext);
   const [pictures, setPictures] = useState([]);
   const { theme, toggleTheme } = useContext(ThemeContext);
-  
+
   const storedToken = localStorage.getItem("authToken");
   const navigate = useNavigate();
 
   const [pictureSelectedNumber, setPictureSelectedNumber] = useState(1)
   const [picturePlace, setPicturePlace] = useState(1)
-  const [picturePage, setPicturePage] = useState(1)
-  const [themeBackground, setThemeBackground] = useState();
-  
+
+  //Get the pictures by userID from DB
   const getAllPictures = () => {
     axios
       .get(
@@ -42,7 +35,6 @@ function PictureListPage() {
   };
 
   useEffect(() => {
-    console.log("insdide effect " ,user)
     getAllPictures();
   }, [user]);
 
@@ -62,26 +54,19 @@ function PictureListPage() {
 
         // Update number of selected pictures and place in the book
         if (pictures.isSelected) {
-          //console.log("selected" + pictureSelectedNumber)
           setPictureSelectedNumber(pictureSelectedNumber + 1);
 
-          //pictures.numberInBook = picturePlace;
-          //console.log("book to be added:" + pictureSelectedNumber)
           if (pictureSelectedNumber === 1) {
             pictures.numberInBook = 1;
           } else {
             picturesCopySort.forEach((picturesCopyList) => {
               if (picturesCopyList.isSelected === true) {
                 count = count + 1;
-                console.log(count)
                 if (picturesCopyList.numberInBook !== count) {
-                  console.log("her1: " + picturesCopyList.numberInBook)
-                  console.log("count1: " + count)
                   pictures.numberInBook = count;
                   return
                 }
                 else if (count === picturesCopySort.length) {
-                  console.log("her: " + picturesCopyList.numberInBook)
                   pictures.numberInBook = count;
                   return
                 }
@@ -91,7 +76,6 @@ function PictureListPage() {
         }
         else if (!pictures.isSelected) {
           //not part of the book anymore, reset values
-          
           setPictureSelectedNumber(pictureSelectedNumber - 1);
           setPicturePlace(pictures.numberInBook);
           pictures.numberInBook = 0;
@@ -127,8 +111,6 @@ function PictureListPage() {
     return i % 2 === 0 ? picturesCopySort2.slice(i, i + 2) : null;
   }).filter(x => x != null);
 
-  
-
   return (
     // <div className={'row containerBackground'} style={{ backgroundImage: `url(${backgroundNeutral})` }}>
     <div className={'row containerBackground'}>
@@ -153,7 +135,7 @@ function PictureListPage() {
               value="Summer"
               onChange={toggleTheme}
               checked={theme === '/static/media/bookSummer2.806b8156.png'}
-              
+
             />
             <label className="radio-inline col-xs-6" htmlFor="Summer">Summer theme</label>
 
@@ -172,21 +154,19 @@ function PictureListPage() {
         <div className="w-100"></div>
 
         {/* <div className={'row h-50 d-inline-block w-75 p-3 ' + theme}> */}
-        <div className={'row h-50 d-inline-block w-75 p-3 ' + theme}>
-          
-        {/* <div className='bg-image .d-flex w-100 h-100' style={{ backgroundImage: `url(${book})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}> */}
-        <div className='bg-image .d-flex w-100 h-100' style={{ backgroundImage: `url(${theme})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className={'row h-50 d-inline-block w-75 p-3'}>
+
+          {/* <div className='bg-image .d-flex w-100 h-100' style={{ backgroundImage: `url(${book})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}> */}
+          <div className='bg-image .d-flex w-100 h-100' style={{ backgroundImage: `url(${theme})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
             {result.map((result, index) => {
               return (
                 <h6 className="text-left" key={index}>
                   {result.map(item =>
 
-                    <label className="foto">
-
-                      <img src={item.imageUrl} alt="picture" className="bookSize" width="150" height="100"/>
+                    <label className="foto" key={item._id}>
+                      <img src={item.imageUrl} alt="picture" className="bookSize" width="150" height="100" />
                       {item.title}
                       {item.description}
-
                     </label>
 
                   )}

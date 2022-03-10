@@ -2,7 +2,6 @@ import { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
-import PictureBookCard from "../components/PictureBookCard";
 import AddressCard from "../components/AddressCard";
 
 const API_URL = "https://photo-book2.herokuapp.com";
@@ -51,8 +50,8 @@ function CartPage() {
 
   return (
     <div>
-      <h3>Press buy and the book will be send to your address</h3>
-      <PictureBookCard />
+      <h3 className="cartBuy">Press buy and the book will be send to your address</h3>
+      
       <AddressCard />
       <form onSubmit={handleSubmit}>
         <button type="submit" className="btn btn-secondary btn-space">Buy</button>

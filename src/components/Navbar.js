@@ -20,7 +20,7 @@ function Navbar() {
       {isLoggedIn && (
         <>
           <Link to="/pictures">
-            <button>Pictures</button>
+            <button>Create Photo Book here</button>
           </Link>        
           <button onClick={logOutUser}>Logout</button>
           <span>{user && user.name}</span>
