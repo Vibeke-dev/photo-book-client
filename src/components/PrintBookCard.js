@@ -53,6 +53,7 @@ console.log(props)
 
   }, [userId]);
 
+  //TODO: to be able to show the book that should be printed
   //get the picture data from the DB/picture model
   // useEffect(() => {
     
@@ -70,10 +71,6 @@ console.log(props)
 
   // }, []);
 
- 
-  //console.log("vibekes picture")
-  //console.log(allPictures)
-
   const handleSubmit = (e) => {
     e.preventDefault();
     // Delete book when it has been send to print
@@ -90,16 +87,12 @@ console.log(props)
     <div className="AddPicture">
       <h3>BOOK</h3>
 
-
-
       <form onSubmit={handleSubmit}>
         <p>Ship to:</p>
-
         <label>{name} </label>
         <label>{address} </label>
         <label>{postCode} {city}</label>
         <label>{country} </label>
-        
         <button type="submit">Print</button>
       </form>
     </div>

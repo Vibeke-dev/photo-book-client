@@ -68,7 +68,7 @@ function AddPicture(props) {
       <p>When you fill out title and description then it will be added to the book automatically</p>
 
       <form onSubmit={handleSubmit}>
-        <label>Title for the picture:</label>
+        <label className="labelStyle">Title for the picture:</label>
         <input
           type="text"
           name="title"
@@ -76,7 +76,7 @@ function AddPicture(props) {
           onChange={(e) => setTitle(e.target.value)}
         />
 
-        <label>Description for the picture:</label>
+        <label className="labelStyle">Description for the picture:</label>
         <textarea
           type="text"
           name="description"
