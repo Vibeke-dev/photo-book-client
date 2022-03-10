@@ -74,9 +74,9 @@ function EditPicturePage(props) {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-
+        <br></br>
         <img src={imageUrl} alt="picture" width="200" />
-        
+        <br></br>
         <button type="submit">Update Picture</button>
       </form>
 

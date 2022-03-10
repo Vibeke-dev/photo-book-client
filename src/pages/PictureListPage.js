@@ -29,20 +29,7 @@ function PictureListPage() {
   const [picturePlace, setPicturePlace] = useState(1)
   const [picturePage, setPicturePage] = useState(1)
   const [themeBackground, setThemeBackground] = useState();
-
-  console.log("vibek")
-console.log(theme)
-
-console.log("vibekeLigefoer")
-  console.log(theme.book)
   
-  // if (theme==='dark'){
-  //   setThemeBackground("test")
-  // }
-  // console.log(themeBackground)
-
-
-
   const getAllPictures = () => {
     axios
       .get(
@@ -104,7 +91,7 @@ console.log("vibekeLigefoer")
         }
         else if (!pictures.isSelected) {
           //not part of the book anymore, reset values
-          console.log("deselected" + pictureSelectedNumber)
+          
           setPictureSelectedNumber(pictureSelectedNumber - 1);
           setPicturePlace(pictures.numberInBook);
           pictures.numberInBook = 0;
@@ -143,7 +130,8 @@ console.log("vibekeLigefoer")
   
 
   return (
-    <div className={'row containerBackground'} style={{ backgroundImage: `url(${backgroundNeutral})` }}>
+    // <div className={'row containerBackground'} style={{ backgroundImage: `url(${backgroundNeutral})` }}>
+    <div className={'row containerBackground'}>
       <div className="col-5">
         <AddPicture refreshPictures={getAllPictures} />
 
@@ -164,6 +152,8 @@ console.log("vibekeLigefoer")
               name="switchToggle"
               value="Summer"
               onChange={toggleTheme}
+              checked={theme === '/static/media/bookSummer2.806b8156.png'}
+              
             />
             <label className="radio-inline col-xs-6" htmlFor="Summer">Summer theme</label>
 
@@ -172,8 +162,9 @@ console.log("vibekeLigefoer")
               name="switchToggle"
               value="Neutral"
               onChange={toggleTheme}
+              checked={theme === '/static/media/bookNature.8063108d.png'}
             />
-            <label htmlFor="Neutral">Neutral theme</label>
+            <label htmlFor="Neutral">Nature theme</label>
           </form>
         </div>
 
@@ -184,13 +175,7 @@ console.log("vibekeLigefoer")
         <div className={'row h-50 d-inline-block w-75 p-3 ' + theme}>
           
         {/* <div className='bg-image .d-flex w-100 h-100' style={{ backgroundImage: `url(${book})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}> */}
-        <div className='bg-image .d-flex w-100 h-100' style={{ backgroundImage: `url(${theme.book})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
-            <div>
-              {/* <div card-body></div> */}
-              {/* {pictures.filter(pictureTrue => pictureTrue.numberInBook >= 1).sort((a, b) => a.numberInBook - b.numberInBook).map((picture) => <PictureBookCard key={picture._id} {...picture} />)} */}
-
-            </div>
-
+        <div className='bg-image .d-flex w-100 h-100' style={{ backgroundImage: `url(${theme})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
             {result.map((result, index) => {
               return (
                 <h6 className="text-left" key={index}>
@@ -198,7 +183,7 @@ console.log("vibekeLigefoer")
 
                     <label className="foto">
 
-                      <img src={item.imageUrl} alt="picture" className="bookSize" />
+                      <img src={item.imageUrl} alt="picture" className="bookSize" width="150" height="100"/>
                       {item.title}
                       {item.description}
 

@@ -13,14 +13,16 @@ import 'bootstrap/dist/css/bootstrap.css';
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-    <ThemeProviderWrapper>
-      <AuthProviderWrapper>  
+
+      <AuthProviderWrapper>
+        <ThemeProviderWrapper>
           <App />
+        </ThemeProviderWrapper>
       </AuthProviderWrapper>
-      </ThemeProviderWrapper>
+
     </Router>
   </React.StrictMode>,
   document.getElementById("root")
 );
- 
+
 reportWebVitals();

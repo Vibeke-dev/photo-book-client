@@ -1,23 +1,20 @@
 import { createContext, useState } from 'react'; 
-import book from './../images/bookNeutral.jpg';
+import natureBook from './../images/bookNature.png';
+import summerBook from './../images/bookSummer2.png';
 
 const ThemeContext = createContext();
 
 // CREATE A WRAPPER COMPONENT
 function ThemeProviderWrapper(props) {
-    const [theme, setTheme] = useState('light');
- 
+    const [theme, setTheme] = useState('/static/media/bookNature.8063108d.png');
     const toggleTheme = () => {
-        if (theme === 'light') {
-          setTheme({book});
+        if (theme === '/static/media/bookNature.8063108d.png') {
+          setTheme(summerBook);
         } else {
-          setTheme('light');
+          setTheme(natureBook);
         }
       };
 
-      console.log("vibekeThemeContext")
-      console.log(theme)
-     
       return (
         <ThemeContext.Provider value={{ theme, toggleTheme }}>
           {props.children}

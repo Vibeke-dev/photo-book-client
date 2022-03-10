@@ -12,9 +12,12 @@ function PrintBookCard(props) {
   const [postCode, setPostCode] = useState("");
   const [country, setCountry] = useState("");
 
+  const [allPictures, setAllPictures] = useState([]);
+
   // Get the token from the localStorage
   const storedToken = localStorage.getItem('authToken');
-
+  console.log("props data:")
+console.log(props)
   const { bookId, pictureData } = props
   const pictureId = pictureData[0];  
 
@@ -50,6 +53,27 @@ function PrintBookCard(props) {
 
   }, [userId]);
 
+  //get the picture data from the DB/picture model
+  // useEffect(() => {
+    
+  //   axios
+  //     .get(`${API_URL}/api/pictures/${pictureId}`,
+  //       { headers: { Authorization: `Bearer ${storedToken}` } }
+  //     )
+  //     .then((response) => {
+  //       // const userData = response.data;
+        
+  //       setAllPictures(response.data);
+        
+  //     })
+  //     .catch((error) => console.log(error));
+
+  // }, []);
+
+ 
+  //console.log("vibekes picture")
+  //console.log(allPictures)
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // Delete book when it has been send to print
@@ -65,6 +89,8 @@ function PrintBookCard(props) {
   return (
     <div className="AddPicture">
       <h3>BOOK</h3>
+
+
 
       <form onSubmit={handleSubmit}>
         <p>Ship to:</p>
