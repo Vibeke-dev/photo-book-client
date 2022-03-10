@@ -24,8 +24,6 @@ function App() {
           path="/pictures"
           element={ <IsPrivate> <PictureListPage /> </IsPrivate> } 
         />
-        
- 
  
         <Route
           path="/pictures/edit/:id"

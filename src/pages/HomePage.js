@@ -7,37 +7,41 @@ import frontPage6 from './../images/frontPage6.JPG';
 
 import backgroundNeutral from './../images/bookNature.png';
 import { Container, Row, Col } from "reactstrap";
+import { Link } from "react-router-dom";
 
 
 function HomePage() {
   return (
+    <div className="backgroundFrontColor">
      <div className="backgroundFront" style={{ backgroundImage: `url(${backgroundNeutral})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
     {/* <div> */}
-      <br></br>
-      <h1 className="fontPageText">Create your own photo book easily</h1>
-      <br></br>
+      
+      
+      
       <Container>
-
         <Row>
-          <Col><img src={frontPage} alt="picture" className="pictureRotate" width="300" height="250" /></Col>
+        <Col><img src={frontPage3} alt="picture" className="pictureNoRotate" /></Col>
+          <Col><h1 className="fontPageText">Create your own photo book easily</h1></Col>
+          <Col></Col>
           <Col><h1 className="fontPageText">Just sign up and get started</h1></Col>
-          <Col><img src={frontPage2} alt="picture" className="pictureRotate" width="300" height="250" /></Col>
+          <Col><img src={frontPage2} alt="picture" className="pictureRotate" /></Col>
         </Row>
-        <br></br>
-        <br></br>
+        
+        
         <Row>
-          <Col><img src={frontPage4} alt="picture" className="pictureRotate2" width="300" height="250" /></Col>
+          <Col><img src={frontPage4} alt="picture" className="pictureRotate2" /></Col>
           <Col></Col>
-          <Col><img src={frontPage6} alt="picture" className="pictureRotate2" width="300" height="250" /></Col>
+          <Col><img src={frontPage6} alt="picture" className="pictureRotate2" /></Col>
         </Row>
         <Row>
-
-          <Col><img src={frontPage3} alt="picture" className="pictureNoRotate" width="300" height="250" /></Col>
+        <Col><img src={frontPage} alt="picture" className="pictureRotate" /></Col>
+          
           <Col></Col>
-          <Col><img src={frontPage5} alt="picture" className="pictureRotate" width="300" height="250" /></Col>
+          <Col><img src={frontPage5} alt="picture" className="pictureRotate" /></Col>
 
         </Row>
       </Container>
+    </div>
     </div>
   );
 }

@@ -157,14 +157,14 @@ function PictureListPage() {
         <div className={'row h-50 d-inline-block w-75 p-3'}>
 
           {/* <div className='bg-image .d-flex w-100 h-100' style={{ backgroundImage: `url(${book})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}> */}
-          <div className='bg-image .d-flex w-100 h-100' style={{ backgroundImage: `url(${theme})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+          <div className='bg-image .d-flex w-100 h-100 photoBookImage' style={{ backgroundImage: `url(${theme})` }}>
             {result.map((result, index) => {
               return (
                 <h6 className="text-left" key={index}>
                   {result.map(item =>
 
                     <label className="foto" key={item._id}>
-                      <img src={item.imageUrl} alt="picture" className="bookSize" width="150" height="100" />
+                      <img src={item.imageUrl} alt="picture" className="bookSize" />
                       {item.title}
                       {item.description}
                     </label>
