@@ -3,7 +3,7 @@
 This project contains of two parts, a server side and a client side. With this app you can create and purchase a photo book with images and descriptions. This part is the client side, which is handling the views and logic behind user login, uploading and selecting pictures for your photo book, and finally the purchase step. 
 
 #### Wireframes
-The wireframe is the idea of the project and the functionalities that should be build. First part is the use stories.
+The wireframe is the idea of the project and the functionalities that should be build. Below are listed the user stories to accomplish that.
 
 ##### User stories
 - Creation of AddPicture (image, headline, description, post) - Picture.model.js
