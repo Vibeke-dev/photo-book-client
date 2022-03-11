@@ -3,6 +3,21 @@
 This project contains of two parts, a server side and a client side. With this app you can create and purchase a photo book with images and descriptions. This part is the client side, which is handling the views and logic behind user login, uploading and selecting pictures for your photo book, and finally the purchase step. 
 
 #### Wireframes
+The wireframe is the idea of the project and the functionalities that should be build. First part is the use stories.
+
+##### User stories
+- Creation of AddPicture (image, headline, description, post) - Picture.model.js
+- Creation of AddCart (theme, array with pictures, number where picture should be placed)
+- Creation of PictureCard - details for adding picture in book (image, headline, description)
+- Creation of EditPicturePage (headline, description, delete)
+- Creation of UploadPicturePage
+- Creation of CreationBookPage
+- CartPage (should be able to return to CreationBookPage, when buy then book is saved in Book.model, user will for now not be able to access it again (mvp))
+- Creation of PrintBookPage (admin page to print book with info from Book.model)
+- Creation of AddressCard
+- Creation of Navbar
+- Creation of HomePage/SignupPage/LoginPage
+
 ![image](https://user-images.githubusercontent.com/59952389/157823324-baf4ecf9-f21f-4c2e-aa35-8cfb663c10ac.png)
 ![image](https://user-images.githubusercontent.com/59952389/157823389-eae9f559-fff9-4ff5-b9af-aee6673bc320.png)
 
