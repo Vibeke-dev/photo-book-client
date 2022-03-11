@@ -15,75 +15,31 @@ This project contains of two parts, a server side and a client side. With this a
 - CSS
 - Axios
 
-#### Models
-##### Picture Model
-```js
-{
-  title: String,
-  description: String,
-  imageUrl: String,
-  purchased: { type: String, default: 'no' },
-  user: { type: Schema.Types.ObjectId, ref: "User" },
-  isSelected: { type: Boolean, default: false },
-  numberInBook: {type: Number, default: 0}
-}
-```
+#### Components and Pages structure
 
-##### Book Model
-```js
-{
-  picture: [{ type: Schema.Types.ObjectId, ref: "Picture" }],
-  price: Number,
-  theme: String
-}
-```
+##### Components
 
-##### User Model
-```js
-{
-  email: { type: String, unique: true, required: true },
-  password: { type: String, required: true },
-  name: { type: String, required: true },
-  address: { type: String, required: true },
-  postCode: { type: Number, required: true },
-  city: { type: String, required: true },
-  country: { type: String, required: true }
-}
-```
+| Name          | Action                                                                        |
+| ------------- | ----------------------------------------------------------------------------- |
+| AddPicture    | Upload the pictures to cloudinary, uses this url when uploading to data base  |
+| AddressCard   | Address card                                                                  |
+| IsAnon        | Used for pages that all users can see                                         |
+| IsPrivate     | Used for pages that are only visible to logged in users                       |
+| Navbar        | Used on each page, link to the different pages of the app                     |
+| PictureCard   | Card to show the picture                                                      |
+| PrintBookCard | Card to show the user information when book should be printed                 |
 
-#### Routes
+##### Pages
 
-##### Picture routes
-
-| HTTP verb | URL                        | Request body | Action                                                                              |
-| --------- | -------------------------- | ------------ | ------------------------------------------------------------------------------------|
-| POST      | `/api/upload`              | JSON         | Receive image, sends it to Cloudinary via the fileUploader and returns the image URL|
-| POST      | `/api/pictures`            | JSON         | Creates a new picture with userID                                                   |
-| GET       | `/api/pictures`            | (empty)      | Retrieves pictures by userID                                                        |
-| GET       | `/api/pictures/:pictureId` | (empty)      | Retrieves a specific picture by id                                                  |
-| PUT       | `/api/pictures/:pictureId` | JSON         | Updates a specific picture by id                                                    |
-| DELETE    | `/api/pictures/:pictureId` | (empty)      | Deletes a specific picture by id                                                    |
-
-##### Book routes
-
-| HTTP verb | URL                        | Request body | Action                        |
-| --------- | -------------------------- | ------------ | ----------------------------- |
-| POST      | `/api/book`                | JSON         | Create a new book             |
-| GET       | `/api/book`                | (empty)      | Retrieves all books           |
-| DELETE    | `/api/book/:bookId`        | (empty)      | Deletes a specific book by id |
-
-##### User routes
-
-| HTTP verb | URL                  | Request body | Action                     |
-| --------- | -------------------- | ------------ | -------------------------- |
-| GET       | `/api/user/:userId`  | (empty)      | Get user by id             |
-
-##### Auth routes
-| HTTP verb | URL                        | Request body | Action                                         |
-| --------- | -------------------------- | ------------ | ---------------------------------------------- |
-| POST      | `/auth/signup`             | JSON         | Creates a new user in the database             |
-| POST      | `/auth/login`              | JSON         | Verifies email and password and returns a JWT  |
-| GET       | `/auth/verify`             | (empty)      | Used to verify JWT stored on the client        |
+| HTTP verb       | URL                   | Action                                                                                                                      |
+| --------------- | ----------------------| ----------------------------------------------------------------------------------------------------------------------------|
+| CartPage        | `/basket`             | Uses the address card to show address information based on the user logged in. User can then buy the book and it will then be created in data base.                                                                                                                                                           |
+| EditPicturePage | `/pictures/edit/:id`  | Get picture based on id, can update or delete the specific picture                                                          |
+| HomePage        | `/`                   | Picture gallery                                                                                                             |
+| LoginPage       | `/login`              | Page to log in                                                                                                              |
+| PictureListPage | `/pictures`           | Page to add new pictures (AddPicture), show pictures (PictureCard), functionalities to add to photo book and add to basket  |
+| PrintPage       | `/print`              | Page to print books that has been purchased, with the address information (PrintBookCard)                                   |
+| SignupPage      | `/signup`             | Page to sign in                                                                                                             |
 
 <hr>
 
@@ -93,7 +49,13 @@ Below link is the final app and link to the server part:
 - https://github.com/Vibeke-dev/photo-book-server.git
 
 #### Future Work
-- 
+- Add more pages to the photo book
+- Make it more dynamic in the style so that when you increase and decrease the screen content follows
+- Add the possibility to buy the book with payment
+- Add the react-use-cart so that it is possible to add more than one book and remove books 
+- Admin rights should be added
+- In the print page it should be possible for the admin to see the book that should be printed
+
 
 #### Team member
 This project is done by me - Vibeke G Jørgensen
