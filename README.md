@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+### Description of the project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project contains of two parts, a server side and a client side. With this app you can create and purchase a photo book with images and descriptions. This part is the client side, which is handling the views and logic behind user login, uploading and selecting pictures for your photo book, and finally the purchase step. 
 
-## Available Scripts
+#### Wireframes
+![image](https://user-images.githubusercontent.com/59952389/157823324-baf4ecf9-f21f-4c2e-aa35-8cfb663c10ac.png)
+![image](https://user-images.githubusercontent.com/59952389/157823389-eae9f559-fff9-4ff5-b9af-aee6673bc320.png)
 
-In the project directory, you can run:
 
-### `yarn start`
+#### Technoligies Used
+- React
+- react-router-dom
+- reactstrap
+- bootstrap/dist/css/bootstrap.css
+- CSS
+- Axios
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### Models
+##### Picture Model
+```js
+{
+  title: String,
+  description: String,
+  imageUrl: String,
+  purchased: { type: String, default: 'no' },
+  user: { type: Schema.Types.ObjectId, ref: "User" },
+  isSelected: { type: Boolean, default: false },
+  numberInBook: {type: Number, default: 0}
+}
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+##### Book Model
+```js
+{
+  picture: [{ type: Schema.Types.ObjectId, ref: "Picture" }],
+  price: Number,
+  theme: String
+}
+```
 
-### `yarn test`
+##### User Model
+```js
+{
+  email: { type: String, unique: true, required: true },
+  password: { type: String, required: true },
+  name: { type: String, required: true },
+  address: { type: String, required: true },
+  postCode: { type: Number, required: true },
+  city: { type: String, required: true },
+  country: { type: String, required: true }
+}
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Routes
 
-### `yarn build`
+##### Picture routes
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| HTTP verb | URL                        | Request body | Action                                                                              |
+| --------- | -------------------------- | ------------ | ------------------------------------------------------------------------------------|
+| POST      | `/api/upload`              | JSON         | Receive image, sends it to Cloudinary via the fileUploader and returns the image URL|
+| POST      | `/api/pictures`            | JSON         | Creates a new picture with userID                                                   |
+| GET       | `/api/pictures`            | (empty)      | Retrieves pictures by userID                                                        |
+| GET       | `/api/pictures/:pictureId` | (empty)      | Retrieves a specific picture by id                                                  |
+| PUT       | `/api/pictures/:pictureId` | JSON         | Updates a specific picture by id                                                    |
+| DELETE    | `/api/pictures/:pictureId` | (empty)      | Deletes a specific picture by id                                                    |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+##### Book routes
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| HTTP verb | URL                        | Request body | Action                        |
+| --------- | -------------------------- | ------------ | ----------------------------- |
+| POST      | `/api/book`                | JSON         | Create a new book             |
+| GET       | `/api/book`                | (empty)      | Retrieves all books           |
+| DELETE    | `/api/book/:bookId`        | (empty)      | Deletes a specific book by id |
 
-### `yarn eject`
+##### User routes
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+| HTTP verb | URL                  | Request body | Action                     |
+| --------- | -------------------- | ------------ | -------------------------- |
+| GET       | `/api/user/:userId`  | (empty)      | Get user by id             |
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+##### Auth routes
+| HTTP verb | URL                        | Request body | Action                                         |
+| --------- | -------------------------- | ------------ | ---------------------------------------------- |
+| POST      | `/auth/signup`             | JSON         | Creates a new user in the database             |
+| POST      | `/auth/login`              | JSON         | Verifies email and password and returns a JWT  |
+| GET       | `/auth/verify`             | (empty)      | Used to verify JWT stored on the client        |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<hr>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Project Link
+Below link is the final app and link to the server part:
+- https://photo-book2.netlify.app/pictures
+- https://github.com/Vibeke-dev/photo-book-server.git
 
-## Learn More
+#### Future Work
+- 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Team member
+This project is done by me - Vibeke G Jørgensen
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
